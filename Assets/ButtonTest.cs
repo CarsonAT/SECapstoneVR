@@ -7,8 +7,10 @@ public class ButtonTest : MonoBehaviour
         Debug.Log("BUTTON HOVERED");
     }
 
+    public string spellName;
+
     public void TestPress()
     {
-        Debug.Log("BUTTON SELECTED");
+        Debug.Log(spellName + " button pressed!");
     }
-}
+}   
