@@ -31,4 +31,12 @@ public class Shoot : MonoBehaviour
 
         Destroy(bullet, bulletLifetime);
     }
+
+    public void SetBulletPrefab(GameObject newPrefab)
+    {
+        if (newPrefab != null)
+        {
+            bulletPrefab = newPrefab;
+        }
+    }
 }

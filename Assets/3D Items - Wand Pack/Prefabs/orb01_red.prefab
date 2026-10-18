@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2375592}
   - component: {fileID: 2882529319431043589}
   - component: {fileID: 5701617458174751610}
+  - component: {fileID: 3735819506417286772}
   m_Layer: 0
   m_Name: orb01_red
   m_TagString: Untagged
@@ -140,3 +141,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.076115176
   m_Center: {x: -7.6232965e-21, y: 0.00000013411048, z: -3.1974426e-14}
+--- !u!114 &3735819506417286772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc6bc83f3768de4a935e2e57d2e388e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileCollision
+  explosionPrefab: {fileID: 3740193805690738414, guid: 626274bfa0ecf6841977f1bce8c6bf16, type: 3}
+  explosionLifetime: 1
