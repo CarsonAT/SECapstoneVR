@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 27874370}
   m_Layer: 2
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Socket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8678,7 +8678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
       propertyPath: m_TagString
-      value: hand
+      value: Hand
       objectReference: {fileID: 0}
     - target: {fileID: 109434732395451517, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10619,6 +10619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4454dcd20a9451b4f80f97728fffebf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonTest
+  shootScript: {fileID: 1530233910}
+  switch_color: {fileID: 188908, guid: 2f40dfe8a438c40419d0a77209227a6e, type: 3}
+  bookGrab: {fileID: 106377621}
+  socketSpawner: {fileID: 787261768}
+  sequenceManager: {fileID: 1659185595}
   spellName: AIR
 --- !u!114 &642065712
 MonoBehaviour:
@@ -13096,7 +13101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SocketSpawner
   socket: {fileID: 787261767}
-  objectToSpawn: {fileID: 0}
+  objectToSpawn: {fileID: 116552, guid: e107e09caa1d609499f8d790e75a44f9, type: 3}
   spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &789646765
 GameObject:
@@ -17242,6 +17247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4454dcd20a9451b4f80f97728fffebf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonTest
+  shootScript: {fileID: 1530233910}
+  switch_color: {fileID: 189036, guid: 195cbda276432fc4688c35cecf923faa, type: 3}
+  bookGrab: {fileID: 106377621}
+  socketSpawner: {fileID: 787261768}
+  sequenceManager: {fileID: 1659185595}
   spellName: EARTH
 --- !u!114 &1088159203
 MonoBehaviour:
@@ -18076,7 +18086,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4454dcd20a9451b4f80f97728fffebf6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpellButton
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonTest
+  shootScript: {fileID: 1530233910}
+  switch_color: {fileID: 111674, guid: 8eb36e8533db0334c88e703607efa78b, type: 3}
+  bookGrab: {fileID: 106377621}
+  socketSpawner: {fileID: 787261768}
+  sequenceManager: {fileID: 1659185595}
   spellName: FIRE
 --- !u!1001 &1124357290
 PrefabInstance:
@@ -19699,6 +19714,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4454dcd20a9451b4f80f97728fffebf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonTest
+  shootScript: {fileID: 1530233910}
+  switch_color: {fileID: 158280, guid: 59d1ef214639e9d47a9c84b42033ae5f, type: 3}
+  bookGrab: {fileID: 106377621}
+  socketSpawner: {fileID: 787261768}
+  sequenceManager: {fileID: 1659185595}
   spellName: WATER
 --- !u!114 &1226502584
 MonoBehaviour:
@@ -20998,7 +21018,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e16867746b3f7414486577e8b1456c82, type: 2}
+  - {fileID: 2100000, guid: 2898d73072ac8af4cadf15ff29d1d925, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21424,7 +21444,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76b0e9d9b5003c343a3d1a32cd87a4f5, type: 2}
+  - {fileID: 2100000, guid: 2430f1b6374b72543ad1a05a680095dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21952,6 +21972,10 @@ PrefabInstance:
     - target: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_Name
       value: XR Interaction Simulator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8518324294302271954, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22824,7 +22848,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76b0e9d9b5003c343a3d1a32cd87a4f5, type: 2}
+  - {fileID: 2100000, guid: 2430f1b6374b72543ad1a05a680095dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27621,6 +27645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1659185594}
+  - component: {fileID: 1659185595}
   m_Layer: 0
   m_Name: SpellSeqManager
   m_TagString: Untagged
@@ -27643,6 +27668,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1659185595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659185593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e785a504f964342bd58f9d40b97e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpellSequenceManager
+  socketSpawner: {fileID: 787261768}
 --- !u!1001 &1666473688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33947,6 +33985,10 @@ PrefabInstance:
     - target: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
       propertyPath: m_Name
       value: Right Hand Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
+      propertyPath: m_TagString
+      value: Hand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
