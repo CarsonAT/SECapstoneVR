@@ -3,23 +3,26 @@ using UnityEngine;
 public class ProjectileCollision : MonoBehaviour
 {
     public GameObject explosionPrefab;
-    public float explosionLifetime = 3f;
 
     private void OnCollisionEnter(Collision collision)
     {
-        Vector3 impactPosition = transform.position;
+        // Ignore hands and socket objects
+        if (collision.gameObject.CompareTag("Hand") ||
+            collision.gameObject.CompareTag("Socket"))
+        {
+            return;
+        }
 
-        Destroy(gameObject);
-
+        // Spawn the explosion at the orb's position
         if (explosionPrefab != null)
         {
-            GameObject explosion = Instantiate(
+            Instantiate(
                 explosionPrefab,
-                impactPosition,
+                transform.position,
                 Quaternion.identity
             );
-
-            Destroy(explosion, explosionLifetime);
         }
+
+        Destroy(gameObject);
     }
 }

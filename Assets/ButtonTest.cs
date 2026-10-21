@@ -1,19 +1,23 @@
 using UnityEngine;
-
+using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class ButtonTest : MonoBehaviour
 {
     public Shoot shootScript;
     public GameObject switch_color;
+    public XRGrabInteractable bookGrab;
+    public SocketSpawner socketSpawner;
+    public SpellSequenceManager sequenceManager;
 
-    public UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable bookGrab;
+    public string spellName;
+
+    private List<string> sequence = new List<string>();
 
     public void TestHover()
     {
         Debug.Log("BUTTON HOVERED");
     }
-
-    public string spellName;
 
     public void TestPress()
     {
@@ -36,8 +40,18 @@ public class ButtonTest : MonoBehaviour
         }
 
         Debug.Log(spellName + " button pressed!");
-        
+
+        sequence.Add(spellName);
+
         shootScript.SetBulletPrefab(switch_color);
-        
+
+        if (sequenceManager != null)
+        {
+            sequenceManager.AddSpell(spellName);
+        }
+        else
+        {
+            Debug.LogError("SpellSequenceManager is not assigned!");
+        }
     }
-}   
+}
