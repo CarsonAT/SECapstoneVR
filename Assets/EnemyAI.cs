@@ -25,25 +25,30 @@ public class EnemyAI : MonoBehaviour
 	public bool playerInSightRange, playerInAttackRange;
 
 	private void Awake()
+{
+	if (agent == null) agent = GetComponentInParent<NavMeshAgent>();
+
+	if (player == null && playerObject != null)
+		player = playerObject.transform;
+
+	if (agent == null || player == null)
 	{
-		player = GameObject.Find("PlayerObj").transform;
-		agent = GetComponent<NavMeshAgent>();
-
-		if (playerObject != null)
-			player = playerObject.transform;
-		else
-			Debug.LogError("PlayerObj was not found in the scene");
+		Debug.LogError("EnemyAI on " + name + " is missing: " +
+			(agent == null ? "NavMeshAgent " : "") +
+			(player == null ? "Player" : ""), this);
+		enabled = false;
 	}
+}
 
-	private void Update()
-	{
-		playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-		playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+private void Update()
+{
+	playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+	playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-		if(!playerInSightRange && !playerInAttackRange) Patroling();
-		if(playerInSightRange && !playerInAttackRange) ChasePlayer();
-		if(playerInAttackRange && playerInSightRange) AttackPlayer();
-	}
+	if (!playerInSightRange && !playerInAttackRange) Patroling();
+	if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+	if (playerInAttackRange && playerInSightRange) AttackPlayer();
+}
 
 	private void Patroling()
 	{
