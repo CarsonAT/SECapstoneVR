@@ -25,18 +25,33 @@ public class EnemyAI : MonoBehaviour
 	public bool playerInSightRange, playerInAttackRange;
 
 	private void Awake()
-	{
-		player = GameObject.Find("PlayerObj").transform;
-		agent = GetComponent<NavMeshAgent>();
+{
+    if (agent == null) agent = GetComponentInParent<NavMeshAgent>();
+    if (agent == null) agent = GetComponentInChildren<NavMeshAgent>();
 
-		if (playerObject != null)
-			player = playerObject.transform;
-		else
-			Debug.LogError("PlayerObj was not found in the scene");
-	}
+    if (agent == null)
+    {
+        Debug.LogError("No NavMeshAgent found for " + name + ". Disabling EnemyAI.", this);
+        enabled = false;   // stops Update from spamming errors
+        return;
+    }
+
+    if (player == null)
+    {
+        if (playerObject != null) player = playerObject.transform;
+        else
+        {
+            GameObject found = GameObject.Find("PlayerObj");
+            if (found != null) player = found.transform;
+            else Debug.LogError("No player found. Assign Player Object or name it 'PlayerObj'.", this);
+        }
+    }
+}
 
 	private void Update()
 	{
+		Debug.Log($"sight:{playerInSightRange} attack:{playerInAttackRange} onMesh:{agent.isOnNavMesh} " +
+          $"hasPath:{agent.hasPath} vel:{agent.velocity.magnitude:F1} status:{agent.pathStatus}");
 		playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 		playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
